@@ -8,4 +8,156 @@
 img {
   width: 100%;
 }
+
+body {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.img {
+  width: 40vw;
+  height: 55vw;
+  float: left;
+  margin-bottom: 0.5em;
+  background: top no-repeat;
+  background-size: cover;
+}
+
+.img:nth-child(even) {
+  clear: both;
+}
+
+.pages {
+  width: 80vw;
+  height: 55vw;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 4px;
+}
+
+.book {
+  -webkit-transition: opacity 0.4s 0.2s;
+  transition: opacity 0.4s 0.2s;
+  -webkit-perspective: 250vw;
+          perspective: 250vw;
+}
+
+.book .img {
+  float: none;
+  clear: none;
+  margin: 0;
+  position: absolute;
+  width: 40vw;
+  height: 55vw;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: -webkit-transform 1.4s;
+  transition: -webkit-transform 1.4s;
+  transition: transform 1.4s;
+  transition: transform 1.4s, -webkit-transform 1.4s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.book .img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+  z-index: 2;
+}
+
+.book .img:nth-child(odd) {
+  pointer-events: all;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  right: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.book .img:nth-child(odd):hover {
+  -webkit-transform: rotateY(-15deg);
+          transform: rotateY(-15deg);
+}
+
+.book .img:nth-child(odd):hover::before {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.book .img:nth-child(odd)::before {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.book .img:nth-child(even) {
+  pointer-events: none;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+  left: 0;
+  border-radius: 4px 0 0 4px;
+  border-color: #000;
+}
+
+.book .img:nth-child(even)::before {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.book .img.grabbing {
+  -webkit-transition: none;
+  transition: none;
+}
+
+.book .img.flipped:nth-child(odd) {
+  pointer-events: none;
+  -webkit-transform: translateY(-180deg);
+          transform: translateY(-180deg);
+}
+
+.book .img.flipped:nth-child(odd)::before {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.book .img.flipped:nth-child(even) {
+  pointer-events: all;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+
+.book .img.flipped:nth-child(even):hover {
+  -webkit-transform: rotateY(15deg);
+          transform: rotateY(15deg);
+}
+
+.book .img.flipped:nth-child(even):hover::before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .img.flipped:nth-child(even)::before {
+  background: rgba(255, 255, 255, 0);
+}
+
+.book .img:nth-child(odd) {
+  background-position: right top;
+}
 /*# sourceMappingURL=style.css.map */
